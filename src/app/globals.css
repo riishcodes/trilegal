@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #EFF4FC;
+    --foreground: #10182B;
+
+    --card: #FDFEFE;
+    --card-foreground: #10182B;
+
+    --popover: #FDFEFE;
+    --popover-foreground: #10182B;
+
+    --primary: #2762E5;
+    --primary-foreground: #FDFEFE;
+
+    --primary-light: #82A9F8;
+    --primary-pale: #CCDEF9;
+
+    --navy: #10182B;
+    --navy-blue: #173068;
+
+    --secondary: #EFF4FC;
+    --secondary-foreground: #10182B;
+
+    --muted: #EFF4FC;
+    --muted-foreground: #3E4554;
+
+    --accent: #CCDEF9;
+    --accent-foreground: #173068;
+
+    --destructive: #CE2A2A;
+    --destructive-foreground: #FDFEFE;
+
+    --border: #DDE5F2;
+    --input: #DDE5F2;
+    --ring: #2762E5;
+
+    --radius: 0.625rem;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.011em;
+}
+
+.font-serif-legal {
+  font-family: 'Newsreader', Georgia, serif;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #EFF4FC;
+}
+::-webkit-scrollbar-thumb {
+  background: #C3CEE0;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8D97AC;
+}
+
+/* Print Styles for OrbitX Professional Reports */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #FDFEFE !important;
+    color: #10182B !important;
+  }
+  .print-page {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+}
