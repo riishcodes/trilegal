@@ -4,11 +4,11 @@ import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
 /**
- * Scroll-reveal wrapper. The only client-side JavaScript on the landing page.
+ * Scroll-reveal wrapper for the section content below the hero.
  *
- * MOTION_INTENSITY is 4, so this is the whole motion budget: opacity plus a
- * short y-translate on entry, once per element. Collapses to no animation
- * under prefers-reduced-motion.
+ * Opacity plus a short y-translate on entry, once per element. The hero card
+ * runs its own sequence in HeroSearchCard; everything else on the page uses
+ * this. Collapses to no animation under prefers-reduced-motion.
  */
 export default function Reveal({
   children,

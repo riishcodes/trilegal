@@ -17,6 +17,7 @@ import {
   Users,
 } from "lucide-react";
 import Reveal from "@/components/landing/Reveal";
+import HeroSearchCard from "@/components/landing/HeroSearchCard";
 
 /* -------------------------------------------------------------------------- */
 /*  Fonts                                                                      */
@@ -253,129 +254,43 @@ export default function Home() {
           >
             <div className="grid w-full gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
               <div className="lg:col-span-7">
-                <h1 className="max-w-[20ch] text-4xl font-semibold tracking-[-0.03em] leading-[1.05] md:text-5xl xl:text-6xl">
-                  One workspace for the whole matter.
-                </h1>
-                <p className={`mt-6 max-w-[58ch] ${LEDE}`}>
-                  Legal research, drafting, risk scoring and case staffing for Indian law firms,
-                  grounded in cited precedent.
-                </p>
-                <div className="mt-9 flex flex-wrap items-center gap-3">
-                  <Link
-                    href="/login"
-                    className="inline-flex items-center gap-2 rounded-lg bg-trilegal-primary px-6 py-3 text-[15px] font-medium text-white transition-colors hover:bg-trilegal-navyBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-trilegal-primary"
-                  >
-                    Open the demo
-                    <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
-                  </Link>
-                  <a
-                    href="#risk"
-                    className="inline-flex items-center gap-2 rounded-lg border border-trilegal-border bg-trilegal-card px-6 py-3 text-[15px] font-medium text-trilegal-text transition-colors hover:border-trilegal-primaryLight"
-                  >
-                    See how risk scoring works
-                  </a>
-                </div>
+                <Reveal>
+                  <h1 className="max-w-[20ch] text-4xl font-semibold tracking-[-0.03em] leading-[1.05] md:text-5xl xl:text-6xl">
+                    One workspace for the whole matter.
+                  </h1>
+                </Reveal>
+                <Reveal className="mt-6" delay={0.08}>
+                  <p className={`max-w-[58ch] ${LEDE}`}>
+                    Legal research, drafting, risk scoring and case staffing for Indian law firms,
+                    grounded in cited precedent.
+                  </p>
+                </Reveal>
+                <Reveal className="mt-9" delay={0.16}>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <Link
+                      href="/login"
+                      className="inline-flex items-center gap-2 rounded-lg bg-trilegal-primary px-6 py-3 text-[15px] font-medium text-white transition-colors hover:bg-trilegal-navyBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-trilegal-primary"
+                    >
+                      Open the demo
+                      <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
+                    </Link>
+                    <a
+                      href="#risk"
+                      className="inline-flex items-center gap-2 rounded-lg border border-trilegal-border bg-trilegal-card px-6 py-3 text-[15px] font-medium text-trilegal-text transition-colors hover:border-trilegal-primaryLight"
+                    >
+                      See how risk scoring works
+                    </a>
+                  </div>
+                </Reveal>
               </div>
 
-              {/* Hero asset: the unified-search result surface. Every value in it is
+              {/* Hero asset: the unified-search result surface, animated once on
+                  mount so the sequence carries the claim. Every value in it is
                   real. The judgment, its citation and its bench are public record;
                   the source label is the exact `database` union member from
                   src/types/legal.ts. Nothing here is a fabricated metric. */}
               <div className="lg:col-span-5">
-                <div className="overflow-hidden rounded-lg border border-trilegal-border bg-trilegal-card shadow-card">
-                  <div className="flex items-center justify-between gap-3 border-b border-trilegal-border px-5 py-3.5">
-                    <span className="text-[11px] text-trilegal-muted" style={MONO}>
-                      research / unified search
-                    </span>
-                    <span
-                      className="rounded-lg bg-trilegal-bg px-2 py-1 text-[10.5px] text-trilegal-muted"
-                      style={MONO}
-                    >
-                      5 sources
-                    </span>
-                  </div>
-
-                  <div className="px-5 pt-5">
-                    <div className="flex items-center gap-2.5 rounded-lg border border-trilegal-border bg-trilegal-bg px-3.5 py-2.5">
-                      <Search
-                        className="h-4 w-4 shrink-0 text-trilegal-muted"
-                        strokeWidth={1.5}
-                        aria-hidden
-                      />
-                      <span className="truncate text-[13px] text-trilegal-text">
-                        arbitrary stop-work order, Article 14
-                      </span>
-                    </div>
-
-                    <div className="mt-3.5 grid grid-cols-2 gap-1.5 sm:grid-cols-3">
-                      {[
-                        "Firm Repository",
-                        "Indian Kanoon",
-                        "SCC Online",
-                        "Manupatra",
-                        "Westlaw",
-                      ].map((source) => (
-                        <span
-                          key={source}
-                          className="truncate rounded-lg border border-trilegal-border px-2 py-1 text-center text-[11px] text-trilegal-muted"
-                          style={MONO}
-                        >
-                          {source}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mt-5 border-t border-trilegal-border bg-trilegal-bg/60 px-5 py-5">
-                    <div className="flex items-start gap-3">
-                      <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-trilegal-primaryPale">
-                        <Landmark
-                          className="h-4 w-4 text-trilegal-navyBlue"
-                          strokeWidth={1.5}
-                          aria-hidden
-                        />
-                      </span>
-                      <div className="min-w-0">
-                        <p className="text-[15px] font-medium leading-snug text-trilegal-text">
-                          Maneka Gandhi vs. Union of India
-                        </p>
-                        <p className="mt-1 text-[11px] text-trilegal-muted" style={MONO}>
-                          (1978) 1 SCC 248 : AIR 1978 SC 597
-                        </p>
-                        <p className="mt-0.5 text-xs text-trilegal-muted">
-                          Supreme Court of India, 7-Judge Bench
-                        </p>
-                      </div>
-                    </div>
-
-                    <p className="mt-4 text-[13px] leading-relaxed text-trilegal-muted">
-                      Procedure that deprives a person of liberty or of a right must be just, fair
-                      and reasonable. Arbitrary executive discretion fails Article 14.
-                    </p>
-
-                    <div className="mt-4 flex flex-wrap items-center gap-2">
-                      <span className="inline-flex items-center gap-1.5 rounded-lg border border-trilegal-border bg-trilegal-card px-2 py-1 text-[11px] text-trilegal-muted">
-                        <Check
-                          className="h-3 w-3 text-trilegal-primary"
-                          strokeWidth={1.5}
-                          aria-hidden
-                        />
-                        Verified public record
-                      </span>
-                      <span
-                        className="rounded-lg border border-trilegal-border bg-trilegal-card px-2 py-1 text-[11px] text-trilegal-muted"
-                        style={MONO}
-                      >
-                        SCC Online (Demo)
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 border-t border-trilegal-border px-5 py-3.5 text-xs text-trilegal-muted">
-                    <ClipboardCheck className="h-3.5 w-3.5 shrink-0" strokeWidth={1.5} aria-hidden />
-                    Carried into the active brief with its citation attached.
-                  </div>
-                </div>
+                <HeroSearchCard />
               </div>
             </div>
           </div>
@@ -710,7 +625,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 7. BRIEF. Full-bleed editorial image, caption below, no overlaid text. */}
+        {/* 7. BRIEF. Inset editorial image, caption below, no overlaid text. */}
         <section className="border-b border-trilegal-border">
           <div className="py-20 lg:py-28">
             <div className={SHELL}>
@@ -728,18 +643,18 @@ export default function Home() {
             </div>
 
             <Reveal delay={0.1}>
-              <div className="mt-12 h-[240px] w-full overflow-hidden sm:h-[320px] lg:h-[420px]">
-                <img
-                  src="https://images.unsplash.com/photo-1600904290455-241ce18f78bb?auto=format&fit=crop&w=2000&h=840&q=80"
-                  alt="A long library aisle receding between tall shelves of bound volumes"
-                  width={2000}
-                  height={840}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover"
-                />
-              </div>
               <div className={SHELL}>
+                <div className="mt-10 h-[160px] w-full overflow-hidden rounded-lg border border-trilegal-border sm:h-[200px] lg:h-[240px]">
+                  <img
+                    src="https://images.unsplash.com/photo-1600904290455-241ce18f78bb?auto=format&fit=crop&w=1600&h=640&q=80"
+                    alt="A long library aisle receding between tall shelves of bound volumes"
+                    width={1600}
+                    height={640}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
                 <p className="mt-4 max-w-[70ch] text-sm text-trilegal-muted">
                   The demo ships with ten reported judgments, including Maneka Gandhi vs. Union of
                   India (1978), K.S. Puttaswamy vs. Union of India (2017) and Vidya Drolia vs. Durga
