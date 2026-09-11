@@ -1,9 +1,0 @@
-{
-  "/login/page": "app/login/page.js",
-  "/app/page": "app/app/page.js",
-  "/app/knowledge/page": "app/app/knowledge/page.js",
-  "/app/contacts/page": "app/app/contacts/page.js",
-  "/app/research/page": "app/app/research/page.js",
-  "/app/drafting/page": "app/app/drafting/page.js",
-  "/app/settings/page": "app/app/settings/page.js"
-}

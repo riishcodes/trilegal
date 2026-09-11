@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -26,7 +26,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
 
-export default function LegalResearchPage() {
+function LegalResearchContent() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get("q") || "constitutional challenge arbitrary regulatory order";
   const { researchResults, addToBrief, briefItems, selectedCaseId } = useApp();
@@ -422,5 +422,13 @@ export default function LegalResearchPage() {
         </div>
       </div>
     </PageTransition>
+  );
+}
+
+export default function LegalResearchPage() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center text-slate-500">Loading legal research...</div>}>
+      <LegalResearchContent />
+    </Suspense>
   );
 }
